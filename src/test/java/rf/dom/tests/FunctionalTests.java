@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FunctionalTests extends TestBase {
     @Test
+    @Order(2)
     @DisplayName("При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`")
     void mainMenuTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -30,6 +31,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("При клике на пункт бургер-меню `О компании` должна открыться страница `О компании` с заголовком `О компании`")
     void burgerMenuTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -46,6 +48,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("При клике на новость на странице `Аналитика` открывается страница новости")
     void newsTest() {
         step("Открыть страницу `дом.рф/analytics/`", () ->
@@ -59,6 +62,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("При клике на иконку `Личный кабинет` открывается форма авторизации")
     void authPageTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -74,6 +78,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("Поиск по вакансиям работает")
     void vacanciesTest() {
         step("Открыть страницу `дом.рф/career/vacancies/`", () ->
@@ -93,6 +98,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("Уроки по инвестициям закрыты, пока не изучен первый урок")
     void investmentsTest() {
         step("Открыть страницу `дом.рф/academy/investments/`", () ->
@@ -114,6 +120,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(2)
     @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
         step("Открыть страницу `дом.рф`", () ->
