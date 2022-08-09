@@ -1,44 +1,114 @@
-# Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/%s">allure.autotests.cloud/project/%s</a> (ask admin@qa.guru for access)
+# Автоматизации тестирования страниц сайта дом.рф
+## :link: <a target="_blank" href="https://xn--d1aqf.xn--p1ai/">дом.рф</a>
 
-# Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
+## :page_with_curl: Содержание:
 
+- <a href="#computer-сode_stack">Технологии и инструменты</a>
+- <a href="#clipboard-реализованные-проверки">Реализованные проверки</a>
+- <a href="#robot-сборки-в-Jenkins">Сборки в Jenkins</a>
+- <a href="#keyboard-запуск-из-терминала">Запуск из терминала</a>
+- <a href="#bar_chart-allure-отчет">Allure отчет</a>
+- <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
+- <a href="#robot-отчет-в-slack">Отчет в Slack</a>
+- <a href="#film_projector-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
-# USAGE examples
+## :computer: Технологии и инструменты
+<p align="left">
+<img width="6%" title="Java" src="images/logo/Java.svg">
+<img width="6%" title="Selenide" src="images/logo/Selenide.svg">
+<img width="6%" title="Allure Report" src="images/logo/Allure_Report.svg">
+<img width="6%" title="Gradle" src="images/logo/Gradle.svg">
+<img width="6%" title="JUnit5" src="images/logo/JUnit5.svg">
+<img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
+<img width="6%" title="Selenoid" src="images/logo/Selenoid.svg">
+<img width="6%" title="GitHub" src="images/logo/GitHub.svg">
+<img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
+<img width="6%" title="Telegram" src="images/logo/Telegram.svg">
+</p>
 
-### For run remote tests need fill remote.properties or to pass value:
+## :clipboard: Реализованные проверки
 
-* browser (default chrome)
-* browserVersion (default 89.0)
-* browserSize (default 1920x1080)
-* browserMobileView (mobile device name, for example iPhone X)
-* remoteDriverUrl (url address from selenoid or grid)
-* videoStorage (url address where you should get video)
-* threads (number of threads)
+- При клике на иконку `Личный кабинет` открывается форма авторизации
+- При клике на новость на странице `Аналитика` открывается страница новости
+- При клике на пункт бургер-меню `О компании` должна открыться страница `О компании` с заголовком `О компании`
+- При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`
+- Уроки по инвестициям закрыты, пока не изучен первый урок
+- Поиск по вакансиям работает
+- Фильтр по апартаментам работает
+- В консоле не должно быть критичных ошибок
 
+## :robot: Сборки в Jenkins
+### <a target="_blank" href="https://jenkins.autotests.cloud/job/C13-yurikulagin-qa-guru-13-14-autotests/">Параметризированная сборка в Jenkins со всеми тестами</a>
+<p align="center">
+<img title="Jenkins Job Run with parameters" src="images/screenshots/jenkins-run.png">
+</p>
+<p align="center">
+<img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-all.png">
+</p>
 
-Run tests with filled remote.properties:
-```bash
+### <a target="_blank" href="https://jenkins.autotests.cloud/job/C08-Yuliya_B-ReadmeForVacancy13/">Сборка в Jenkins со Smoke тестами</a>
+<p align="center">
+<img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-smoke.png">
+</p>  
+
+## :keyboard: Запуск из терминала
+Локальный запуск всех тестов:
+```
 gradle clean test
 ```
 
-Run tests with not filled remote.properties:
-```bash
-gradle clean -DremoteDriverUrl=https://%s:%s@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
+Локальный запуск только Smoke тестов (c тегом Smoke):
+```
+gradle clean smoke_tests
 ```
 
-Serve report:
-```bash
-allure serve build/allure-results
+Удаленный запуск всех тестов:
+```
+clean
+test
+ -Dbrowser=${BROWSER}
+ -DbrowserVersion=${BROWSER_VERSION}
+ -DbrowserSize=${BROWSER_SIZE}
+ -DbaseUrl=${BASE_URL}
+ -Dremote=${REMOTE}
 ```
 
-
-###### For further development there are some example tests in src/test/java/cloud.autotests/tests/demowebshop
-* remove @Disabled("...") annotation to run tests
-```bash
-gradle clean demowebshop
+Удаленный запуск только Smoke тестов (c тегом Smoke):
+```
+clean
+smoke_tests
+ -Dbrowser=${BROWSER}
+ -DbrowserVersion=${BROWSER_VERSION}
+ -DbrowserSize=${BROWSER_SIZE}
+ -DbaseUrl=${BASE_URL}
+ -Dremote=${REMOTE}
 ```
 
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
+## :bar_chart: Allure отчет
+- ### Главный экран отчета
+<p align="center">
+<img title="Allure Overview Dashboard" src="images/screenshots/allure-main-page.png">
+</p>
+
+- ### Страница с проведенными тестами
+<p align="center">
+<img title="Allure Test Page" src="images/screenshots/allure-test-page.png">
+</p>
+
+## :robot: Отчет в Telegram
+- ### Telegram notification message (all results)
+<p align="center">
+<img title="Telegram notification message (all results)" src="images/screenshots/telegram-bot.png">
+</p>
+
+## :robot: Отчет в Slack
+- ### Slack notification message (only failed tests)
+<p align="center">
+<img title="Slack notification message (only failed tests)" src="images/screenshots/slack-bot.png">
+</p>
+
+## :film_projector: Видео пример прохождения тестов
+> К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
+<p align="center">
+  <img title="Selenoid Video" src="images/gif/test-run.gif">
+</p>
