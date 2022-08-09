@@ -8,8 +8,8 @@
 - <a href="#robot-сборки-в-Jenkins">Сборки в Jenkins</a>
 - <a href="#keyboard-запуск-из-терминала">Запуск из терминала</a>
 - <a href="#bar_chart-allure-отчет">Allure отчет</a>
+- <a href="#bar_chart-allure-testops-отчет">Allure TestOps отчет</a>
 - <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
-- <a href="#robot-отчет-в-slack">Отчет в Slack</a>
 - <a href="#film_projector-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
 ## :computer: Технологии и инструменты
@@ -46,10 +46,6 @@
 <img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-all.png">
 </p>
 
-### <a target="_blank" href="https://jenkins.autotests.cloud/job/C08-Yuliya_B-ReadmeForVacancy13/">Сборка в Jenkins со Smoke тестами</a>
-<p align="center">
-<img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-smoke.png">
-</p>  
 
 ## :keyboard: Запуск из терминала
 Локальный запуск всех тестов:
@@ -57,26 +53,10 @@
 gradle clean test
 ```
 
-Локальный запуск только Smoke тестов (c тегом Smoke):
-```
-gradle clean smoke_tests
-```
-
 Удаленный запуск всех тестов:
 ```
 clean
 test
- -Dbrowser=${BROWSER}
- -DbrowserVersion=${BROWSER_VERSION}
- -DbrowserSize=${BROWSER_SIZE}
- -DbaseUrl=${BASE_URL}
- -Dremote=${REMOTE}
-```
-
-Удаленный запуск только Smoke тестов (c тегом Smoke):
-```
-clean
-smoke_tests
  -Dbrowser=${BROWSER}
  -DbrowserVersion=${BROWSER_VERSION}
  -DbrowserSize=${BROWSER_SIZE}
@@ -95,16 +75,21 @@ smoke_tests
 <img title="Allure Test Page" src="images/screenshots/allure-test-page.png">
 </p>
 
+## :bar_chart: Allure TestOps отчет
+- ### Главный экран отчета
+<p align="center">
+<img title="Allure Overview Dashboard" src="images/screenshots/allure-test-ops-main-page.png">
+</p>
+
+- ### Страница с проведенными тестами
+<p align="center">
+<img title="Allure Test Page" src="images/screenshots/allure-test-ops-test-page.png">
+</p>
+
 ## :robot: Отчет в Telegram
 - ### Telegram notification message (all results)
 <p align="center">
 <img title="Telegram notification message (all results)" src="images/screenshots/telegram-bot.png">
-</p>
-
-## :robot: Отчет в Slack
-- ### Slack notification message (only failed tests)
-<p align="center">
-<img title="Slack notification message (only failed tests)" src="images/screenshots/slack-bot.png">
 </p>
 
 ## :film_projector: Видео пример прохождения тестов
