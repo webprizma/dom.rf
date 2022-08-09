@@ -15,23 +15,23 @@ public class MainPageTests extends TestBase {
     @DisplayName("При клике на пункт меню `О компании` должна открыться страница `О компании` с заголовком `О компании`")
     void burgerMenuTest() {
         step("Открыть страницу `дом.рф`", () ->
-            open("https://xn--d1aqf.xn--p1ai/"));
+                open("https://xn--d1aqf.xn--p1ai/"));
 
         step("Кликнуть на бургер-меню", () ->
-            $(".header-buttons__burger-button").click());
+                $(".header-buttons__burger-button").click());
 
         step("Кликнуть на пункт меню `О компании`", () ->
-            $x("//a[text()='О компании']").click());
+                $x("//a[text()='О компании']").click());
 
         step("Заголовок h1 должен содержать текст `О компании`", () ->
-            $("h1").shouldHave(Condition.text("О компании")));
+                $("h1").shouldHave(Condition.text("О компании")));
     }
 
     @Test
     @DisplayName("Page console log should not have errors")
     void consoleShouldHaveNotErrorsTest() {
         step("Open url `дом.рф`", () ->
-            open("https://xn--d1aqf.xn--p1ai/"));
+                open("https://xn--d1aqf.xn--p1ai/"));
 
         step("Console logs should not contain text `SEVERE`", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
