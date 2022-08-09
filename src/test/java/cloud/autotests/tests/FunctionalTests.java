@@ -130,9 +130,8 @@ public class FunctionalTests extends TestBase {
     }
 
     @AfterAll
-    @Test
     @DisplayName("Фильтр по апартаментам работает")
-    static void apartmentsTest() {
+    public static void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
                 open("https://аренда.дом.рф/apartment/"));
 
