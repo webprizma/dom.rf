@@ -112,6 +112,38 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Фильтр по апартаментам работает")
+    void apartmentsTest() {
+        step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
+                open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/apartment/"));
+
+        step("Выбрать в фильтре объект", () -> {
+            $$(".filter-row__item").get(0).click();
+            $(byText("Символ")).click();
+        });
+
+        step("Выбрать в фильтре количество комнат", () -> {
+            $$(".filter-row__item").get(1).click();
+            $(byText("3-комн.")).click();
+        });
+
+        step("Выбрать в фильтре тип квартиры", () -> {
+            $$(".filter-row__item").get(2).click();
+            $(byText("Евро")).click();
+        });
+
+        step("Выбрать в фильтре стоимость", () -> {
+            $("[data-analytics='main-filter-price-range']").$$("input").get(0).setValue("100000");
+            $("[data-analytics='main-filter-price-range']").$$("input").get(1).setValue("200000");
+        });
+
+        step("Проверить, что результаты поиска не пустые", () -> {
+            $$(".card-apart").shouldBe(CollectionCondition.sizeGreaterThan(0));
+            $(".card-apart__desc").shouldHave(Condition.text("Москва, ш. Энтузиастов, д. 3, корп. 1"));
+        });
+    }
+
+    @Test
     @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
         step("Открыть страницу `дом.рф`", () ->
