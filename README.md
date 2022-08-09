@@ -9,6 +9,7 @@
 - <a href="#keyboard-запуск-из-терминала">Запуск из терминала</a>
 - <a href="#bar_chart-allure-отчет">Allure отчет</a>
 - <a href="#bar_chart-allure-testops-отчет">Allure TestOps отчет</a>
+- <a href="#clipboard-пример-issue-в-jira">Пример Issue в JIRA</a>
 - <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
 - <a href="#film_projector-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
@@ -84,6 +85,12 @@ test
 - ### Страница с проведенными тестами
 <p align="center">
 <img title="Allure TestOps Test Page" src="images/screenshots/allure-test-ops-test-page.png">
+</p>
+
+## :clipboard: Пример issue в JIRA
+- ### JIRA Issue
+<p align="center">
+<img title="JIRA Issue" src="images/screenshots/jira-issue.png">
 </p>
 
 ## :robot: Отчет в Telegram
