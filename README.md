@@ -46,20 +46,11 @@
 <img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-all.png">
 </p>
 
-### <a target="_blank" href="https://jenkins.autotests.cloud/job/C08-Yuliya_B-ReadmeForVacancy13/">Сборка в Jenkins со Smoke тестами</a>
-<p align="center">
-<img title="Jenkins Dashboard" src="images/screenshots/jenkins-dashboard-smoke.png">
-</p>  
 
 ## :keyboard: Запуск из терминала
 Локальный запуск всех тестов:
 ```
 gradle clean test
-```
-
-Локальный запуск только Smoke тестов (c тегом Smoke):
-```
-gradle clean smoke_tests
 ```
 
 Удаленный запуск всех тестов:
@@ -99,12 +90,6 @@ smoke_tests
 - ### Telegram notification message (all results)
 <p align="center">
 <img title="Telegram notification message (all results)" src="images/screenshots/telegram-bot.png">
-</p>
-
-## :robot: Отчет в Slack
-- ### Slack notification message (only failed tests)
-<p align="center">
-<img title="Slack notification message (only failed tests)" src="images/screenshots/slack-bot.png">
 </p>
 
 ## :film_projector: Видео пример прохождения тестов
