@@ -135,6 +135,7 @@ public class FunctionalTests extends TestBase {
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф`", () -> {
+            getWebDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
             getWebDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
             open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/");
         });
