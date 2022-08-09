@@ -143,31 +143,32 @@ public class FunctionalTests extends TestBase {
         step("Кликнуть на кнопку `Выбрать жилье`", () -> {
             $(byText("Новый уровень арендного жилья")).scrollTo();
             $(byText("Выбрать жилье")).click();
-            $("a.logo").shouldBe(Condition.visible, Duration.ofSeconds(60));
+            sleep(3000);
         });
 
 
         step("Выбрать в фильтре объект", () -> {
             $$(".filter-row__item").get(0).click();
             $(byText("Символ")).click();
-            Thread.sleep(3000);
+            sleep(3000);
         });
 
         step("Выбрать в фильтре количество комнат", () -> {
             $$(".filter-row__item").get(1).click();
             $(withTextCaseInsensitive("3-комн.")).click();
-            Thread.sleep(3000);
+            sleep(3000);
         });
 
         step("Выбрать в фильтре тип квартиры", () -> {
             $$(".filter-row__item").get(2).click();
             $(byText("Евро")).click();
-            Thread.sleep(3000);
+            sleep(3000);
         });
 
         step("Выбрать в фильтре стоимость", () -> {
             $("[data-analytics='main-filter-price-range']").$$("input").get(0).setValue("100000");
             $("[data-analytics='main-filter-price-range']").$$("input").get(1).setValue("200000");
+            sleep(3000);
         });
 
         step("Проверить, что результаты поиска не пустые", () -> {
