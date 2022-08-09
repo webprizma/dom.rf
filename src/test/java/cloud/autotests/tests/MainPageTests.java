@@ -82,13 +82,11 @@ public class MainPageTests extends TestBase {
         step("Выбрать город `Москва`", () ->
                 $("#cities-list-selectized").setValue("Москва").pressEnter());
 
-        step("Ввести в поле `Поиск по вакансиям` слово `инженер`", () ->
-                $("#search-on-vacancies").setValue("инженер"));
+        step("Ввести в поле `Поиск по вакансиям` слово `QA инженер`", () ->
+                $("#search-on-vacancies").setValue("QA инженер"));
 
-        step("Проверить, что есть 3 вакансии с заданными условиями поиска", () -> {
-            $$(".vacancies__item").first().scrollTo();
-            $$(".vacancies__item").shouldHave(CollectionCondition.size(3));
-            $$(".vacancies__item").first().scrollTo().shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)"));
+        step("Проверить, что есть вакансия на тестировщика", () -> {
+            $$(".vacancies__item").first().shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)"));
         });
     }
 
