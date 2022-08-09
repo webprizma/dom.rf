@@ -58,6 +58,21 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @DisplayName("При клике на иконку `Личный кабинет` открывается форма авторизации")
+    void authPageTest() {
+        step("Открыть страницу `дом.рф`", () ->
+                open("https://xn--d1aqf.xn--p1ai/"));
+
+        step("Кликнуть на иконку `Личный кабинет`", () ->
+                $(".header-buttons__lk-button").click());
+
+        step("Проверить, что есть форма авторизации", () -> {
+                switchTo().window(1);
+                $("form#loginform").shouldBe(Condition.visible);
+        });
+    }
+
+    @Test
     @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
         step("Открыть страницу `дом.рф`", () ->
