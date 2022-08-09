@@ -1,6 +1,7 @@
 package cloud.autotests.tests;
 
 import cloud.autotests.helpers.DriverUtils;
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -67,8 +68,27 @@ public class MainPageTests extends TestBase {
                 $(".header-buttons__lk-button").click());
 
         step("Проверить, что есть форма авторизации", () -> {
-                switchTo().window(1);
-                $("form#loginform").shouldBe(Condition.visible);
+            switchTo().window(1);
+            $("form#loginform").shouldBe(Condition.visible);
+        });
+    }
+
+    @Test
+    @DisplayName("Поиск по вакансиям работает")
+    void vacanciesTest() {
+        step("Открыть страницу `дом.рф/career/vacancies/`", () ->
+                open("https://xn--d1aqf.xn--p1ai/career/vacancies/"));
+
+        step("Выбрать город `Москва`", () ->
+                $("#cities-list-selectized").setValue("Москва").pressEnter());
+
+        step("Ввести в поле `Поиск по вакансиям` слово `инженер`", () ->
+                $("#search-on-vacancies").setValue("инженер"));
+
+        step("Проверить, что есть 3 вакансии с заданными условиями поиска", () -> {
+            $$(".vacancies__item").first().scrollTo();
+            $$(".vacancies__item").shouldHave(CollectionCondition.size(3));
+            $$(".vacancies__item").first().scrollTo().shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)"));
         });
     }
 
