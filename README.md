@@ -1,5 +1,5 @@
-# Автоматизации тестирования страницы деталей вакансии QA Automation на сайте hh.ru
-## :link: <a target="_blank" href="https://hh.ru/vacancy/55354866?query=QA%20automation%20engineer&from=vacancy_search_catalog&hhtmFrom=vacancy_search_catalog">hh.ru - Вакансия QA Automation</a>
+# Автоматизации тестирования страниц сайта дом.рф
+## :link: <a target="_blank" href="https://xn--d1aqf.xn--p1ai/">дом.рф</a>
 
 ## :page_with_curl: Содержание:
 
@@ -27,14 +27,18 @@
 </p>
 
 ## :clipboard: Реализованные проверки
-- Проверка наличия текста "QA" в названии вакансии :heavy_check_mark:
-- Проверка соответствия вакансии на необходимый тип работы: удаленная работа :heavy_check_mark:
-- Проверка соответствия вакансии на наличие необходимых навыков: Selenoid :heavy_check_mark:
-- Проверка перехода на ввод кода при вводе валидного Email и отклике на вакансию :x: (тест failed для отражения статуса failed в отчетах)
-- Проверка наличия ошибки при вводе неверного формата Email :heavy_minus_sign: (тест Disabled для отражения статуса skipped в отчетах)
+
+- При клике на иконку `Личный кабинет` открывается форма авторизации
+- При клике на новость на странице `Аналитика` открывается страница новости
+- При клике на пункт бургер-меню `О компании` должна открыться страница `О компании` с заголовком `О компании`
+- При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`
+- Уроки по инвестициям закрыты, пока не изучен первый урок
+- Поиск по вакансиям работает
+- Фильтр по апартаментам работает
+- В консоле не должно быть критичных ошибок
 
 ## :robot: Сборки в Jenkins
-### <a target="_blank" href="https://jenkins.autotests.cloud/job/C08-Yuliya_B-ReadmeForVacancy13All/">Параметризированная сборка в Jenkins со всеми тестами</a>
+### <a target="_blank" href="https://jenkins.autotests.cloud/job/C13-yurikulagin-qa-guru-13-14-autotests/">Параметризированная сборка в Jenkins со всеми тестами</a>
 <p align="center">
 <img title="Jenkins Job Run with parameters" src="images/screenshots/jenkins-run.png">
 </p>
