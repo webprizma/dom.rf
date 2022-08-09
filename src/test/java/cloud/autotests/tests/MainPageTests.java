@@ -91,6 +91,27 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Уроки по инвестициям закрыты, пока не изучен первый урок")
+    void investmentsTest() {
+        step("Открыть страницу `дом.рф/academy/investments/`", () ->
+                open("https://xn--d1aqf.xn--p1ai/academy/investments/"));
+
+        step("Кликнуть на кнопку `Начать учиться`", () ->
+                $(byText("Начать учиться")).click());
+
+        step("Проверить, что первый урок доступен", () -> {
+            $$(".ai-lesson").first().click();
+            $(".mp-header__leader-title").shouldBe(Condition.visible).shouldHave(Condition.text("Введение"));
+        });
+
+        step("Проверить, что второй урок не доступен", () -> {
+            back();
+            $$(".ai-lesson").get(2).click();
+            $("#disabled-lesson").shouldHave(Condition.text("Изучите предыдущий урок"));
+        });
+    }
+
+    @Test
     @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
         step("Открыть страницу `дом.рф`", () ->
