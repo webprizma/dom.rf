@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import rf.dom.helpers.DriverUtils;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withTextCaseInsensitive;
 import static com.codeborne.selenide.Selenide.*;
@@ -136,6 +138,7 @@ public class FunctionalTests extends TestBase {
         step("Кликнуть на кнопку `Выбрать жилье`", () -> {
             $(byText("Новый уровень арендного жилья")).scrollTo();
             $(byText("Выбрать жилье")).click();
+            $("a.logo").shouldBe(Condition.visible, Duration.ofSeconds(60));
         });
 
 
