@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.withTextCaseInsensitive;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -128,7 +129,7 @@ public class FunctionalTests extends TestBase {
 
         step("Выбрать в фильтре количество комнат", () -> {
             $$(".filter-row__item").get(1).click();
-            $(byText("3-комн.")).click();
+            $(withTextCaseInsensitive("3-комн.")).click();
         });
 
         step("Выбрать в фильтре тип квартиры", () -> {
