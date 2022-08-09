@@ -6,6 +6,8 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -120,7 +122,7 @@ public class FunctionalTests extends TestBase {
                 open("https://аренда.дом.рф/apartment/"));
 
         step("Выбрать в фильтре объект", () -> {
-            $("a.logo").shouldBe(Condition.visible);
+            $("a.logo").should(Condition.visible, Duration.ofSeconds(30));
             $$(".filter-row__item").get(0).click();
             $(byText("Символ")).click();
         });
