@@ -64,3 +64,9 @@ tasks.withType(Test) {
         }
     }
 }
+
+task apartments(type: Test) {
+    useJUnitPlatform {
+        includeTags 'apartments'
+    }
+}
