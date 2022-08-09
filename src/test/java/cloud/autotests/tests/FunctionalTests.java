@@ -3,6 +3,7 @@ package cloud.autotests.tests;
 import cloud.autotests.helpers.DriverUtils;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -115,8 +116,9 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @AfterAll
     @DisplayName("Фильтр по апартаментам работает")
-    void apartmentsTest() {
+    static void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
                 open("https://аренда.дом.рф/apartment/"));
 
