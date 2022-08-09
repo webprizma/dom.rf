@@ -13,12 +13,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
 
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
         DriverSettings.configure();
+        getWebDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+        getWebDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
     }
 
     @BeforeEach
