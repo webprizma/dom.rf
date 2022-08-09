@@ -135,40 +135,40 @@ public class FunctionalTests extends TestBase {
     void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф`", () -> {
             open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/");
-            getWebDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
-            getWebDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
+            getWebDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(180));
+            getWebDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(180));
         });
 
 
         step("Кликнуть на кнопку `Выбрать жилье`", () -> {
             $(byText("Новый уровень арендного жилья")).scrollTo();
             $(byText("Выбрать жилье")).click();
-            sleep(3000);
+            sleep(1000);
         });
 
 
         step("Выбрать в фильтре объект", () -> {
             $$(".filter-row__item").get(0).click();
             $(byText("Символ")).click();
-            sleep(3000);
+            sleep(1000);
         });
 
         step("Выбрать в фильтре количество комнат", () -> {
             $$(".filter-row__item").get(1).click();
             $(withTextCaseInsensitive("3-комн.")).click();
-            sleep(3000);
+            sleep(1000);
         });
 
         step("Выбрать в фильтре тип квартиры", () -> {
             $$(".filter-row__item").get(2).click();
             $(byText("Евро")).click();
-            sleep(3000);
+            sleep(1000);
         });
 
         step("Выбрать в фильтре стоимость", () -> {
             $("[data-analytics='main-filter-price-range']").$$("input").get(0).setValue("100000");
             $("[data-analytics='main-filter-price-range']").$$("input").get(1).setValue("200000");
-            sleep(3000);
+            sleep(1000);
         });
 
         step("Проверить, что результаты поиска не пустые", () -> {
