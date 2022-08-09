@@ -3,9 +3,7 @@ package cloud.autotests.tests;
 import cloud.autotests.helpers.DriverUtils;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -120,7 +118,7 @@ public class FunctionalTests extends TestBase {
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
-                open( "https://аренда.дом.рф/apartment/"));
+                open("https://аренда.дом.рф/apartment/"));
 
         step("Выбрать в фильтре объект", () -> {
             $$(".filter-row__item").get(0).click();
