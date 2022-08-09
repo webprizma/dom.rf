@@ -1,9 +1,10 @@
 package rf.dom.tests;
 
-import rf.dom.helpers.DriverUtils;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import rf.dom.helpers.DriverUtils;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withTextCaseInsensitive;
@@ -11,10 +12,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FunctionalTests extends TestBase {
     @Test
-    @Order(2)
     @DisplayName("При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`")
     void mainMenuTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -31,7 +30,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(2)
     @DisplayName("При клике на пункт бургер-меню `О компании` должна открыться страница `О компании` с заголовком `О компании`")
     void burgerMenuTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -48,7 +46,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(2)
     @DisplayName("При клике на новость на странице `Аналитика` открывается страница новости")
     void newsTest() {
         step("Открыть страницу `дом.рф/analytics/`", () ->
@@ -62,7 +59,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(2)
     @DisplayName("При клике на иконку `Личный кабинет` открывается форма авторизации")
     void authPageTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -78,7 +74,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(2)
     @DisplayName("Поиск по вакансиям работает")
     void vacanciesTest() {
         step("Открыть страницу `дом.рф/career/vacancies/`", () ->
@@ -98,7 +93,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(2)
     @DisplayName("Уроки по инвестициям закрыты, пока не изучен первый урок")
     void investmentsTest() {
         step("Открыть страницу `дом.рф/academy/investments/`", () ->
@@ -120,7 +114,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(2)
     @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
         step("Открыть страницу `дом.рф`", () ->
@@ -135,7 +128,6 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Order(1)
     @DisplayName("Фильтр по апартаментам работает")
     public static void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
