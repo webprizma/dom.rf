@@ -116,7 +116,21 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @DisplayName("В консоле не должно быть критичных ошибок")
+    void consoleShouldHaveNotErrorsTest() {
+        step("Открыть страницу `дом.рф`", () ->
+                open("https://xn--d1aqf.xn--p1ai/"));
+
+        step("В консоле не должно быть ошибок со статусом `SEVERE`", () -> {
+            String consoleLogs = DriverUtils.getConsoleLogs();
+            String errorText = "SEVERE";
+
+            assertThat(consoleLogs).doesNotContain(errorText);
+        });
+    }
+
     @AfterAll
+    @Test
     @DisplayName("Фильтр по апартаментам работает")
     static void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
@@ -145,20 +159,6 @@ public class FunctionalTests extends TestBase {
         step("Проверить, что результаты поиска не пустые", () -> {
             $$(".card-apart").shouldBe(CollectionCondition.sizeGreaterThan(0));
             $(".card-apart__desc").shouldHave(Condition.text("Москва, ш. Энтузиастов, д. 3, корп. 1"));
-        });
-    }
-
-    @Test
-    @DisplayName("В консоле не должно быть критичных ошибок")
-    void consoleShouldHaveNotErrorsTest() {
-        step("Открыть страницу `дом.рф`", () ->
-                open("https://xn--d1aqf.xn--p1ai/"));
-
-        step("В консоле не должно быть ошибок со статусом `SEVERE`", () -> {
-            String consoleLogs = DriverUtils.getConsoleLogs();
-            String errorText = "SEVERE";
-
-            assertThat(consoleLogs).doesNotContain(errorText);
         });
     }
 }
