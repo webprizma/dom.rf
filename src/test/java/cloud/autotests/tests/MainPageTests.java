@@ -85,9 +85,8 @@ public class MainPageTests extends TestBase {
         step("Ввести в поле `Поиск по вакансиям` слово `QA инженер`", () ->
                 $("#search-on-vacancies").setValue("QA инженер"));
 
-        step("Проверить, что есть вакансия на тестировщика", () -> {
-            $$(".vacancies__item").first().shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)"));
-        });
+        step("Проверить, что есть вакансия на тестировщика", () ->
+                $$(".vacancies__item").first().scrollTo().$(".vacancies__item_title").shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)")));
     }
 
     @Test
