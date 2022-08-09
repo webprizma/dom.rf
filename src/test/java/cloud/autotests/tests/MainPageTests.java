@@ -5,6 +5,7 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,7 +13,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainPageTests extends TestBase {
     @Test
-    @DisplayName("При клике на пункт меню `О компании` должна открыться страница `О компании` с заголовком `О компании`")
+    @DisplayName("При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`")
+    void mainMenuTest() {
+        step("Открыть страницу `дом.рф`", () ->
+                open("https://xn--d1aqf.xn--p1ai/"));
+
+        step("Кликнуть на пункт меню `Аналитика и цены`", () ->
+                $(byText("Аналитика и цены")).click());
+
+        step("Кликнуть на пункт меню `О компании`", () ->
+                $(byText("Аналитика рынка")).click());
+
+        step("Заголовок h1 должен содержать текст `Аналитика`", () ->
+                $("h1").shouldHave(Condition.text("Аналитика")));
+    }
+
+    @Test
+    @DisplayName("При клике на пункт бургер-меню `О компании` должна открыться страница `О компании` с заголовком `О компании`")
     void burgerMenuTest() {
         step("Открыть страницу `дом.рф`", () ->
                 open("https://xn--d1aqf.xn--p1ai/"));
