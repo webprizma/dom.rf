@@ -1,4 +1,4 @@
-package cloud.autotests.config;
+package rf.dom.config;
 
 import org.aeonbits.owner.ConfigFactory;
 

@@ -1,9 +1,9 @@
-package cloud.autotests.tests;
+package rf.dom.tests;
 
-import cloud.autotests.config.Project;
-import cloud.autotests.helpers.AllureAttachments;
-import cloud.autotests.helpers.DriverSettings;
-import cloud.autotests.helpers.DriverUtils;
+import rf.dom.config.Project;
+import rf.dom.helpers.AllureAttachments;
+import rf.dom.helpers.DriverSettings;
+import rf.dom.helpers.DriverUtils;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.junit5.AllureJunit5;

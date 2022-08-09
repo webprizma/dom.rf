@@ -1,11 +1,9 @@
-package cloud.autotests.tests;
+package rf.dom.tests;
 
-import cloud.autotests.helpers.DriverUtils;
+import rf.dom.helpers.DriverUtils;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withTextCaseInsensitive;
@@ -13,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FunctionalTests extends TestBase {
     @Test
     @DisplayName("При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`")
@@ -129,7 +127,8 @@ public class FunctionalTests extends TestBase {
         });
     }
 
-    @AfterAll
+    @Test
+    @Order(1)
     @DisplayName("Фильтр по апартаментам работает")
     public static void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
