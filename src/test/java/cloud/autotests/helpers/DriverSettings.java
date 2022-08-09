@@ -2,6 +2,7 @@ package cloud.autotests.helpers;
 
 import cloud.autotests.config.Project;
 import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -24,6 +25,12 @@ public class DriverSettings {
         chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--lang=en-en");
+        chromeOptions.addArguments("enable-automation");
+        chromeOptions.addArguments("--disable-extensions");
+        chromeOptions.addArguments("--dns-prefetch-disable");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
         if (Project.isWebMobile()) { // for chrome only
             Map<String, Object> mobileDevice = new HashMap<>();
