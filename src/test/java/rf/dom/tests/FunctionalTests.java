@@ -144,17 +144,17 @@ public class FunctionalTests extends TestBase {
 
         step("Выбрать в фильтре объект", () -> {
             $$(".filter-row__item").get(0).click();
-            $(byText("Символ")).click();
+            $(byText("Символ")).shouldBe(Condition.visible, Duration.ofSeconds(120)).click();
         });
 
         step("Выбрать в фильтре количество комнат", () -> {
             $$(".filter-row__item").get(1).click();
-            $(withTextCaseInsensitive("3-комн.")).click();
+            $(withTextCaseInsensitive("3-комн.")).shouldBe(Condition.visible, Duration.ofSeconds(120)).click();
         });
 
         step("Выбрать в фильтре тип квартиры", () -> {
             $$(".filter-row__item").get(2).click();
-            $(byText("Евро")).click();
+            $(byText("Евро")).shouldBe(Condition.visible, Duration.ofSeconds(120)).click();
         });
 
         step("Выбрать в фильтре стоимость", () -> {
