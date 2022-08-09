@@ -130,8 +130,14 @@ public class FunctionalTests extends TestBase {
     @Test
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
-        step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
-                open("https://аренда.дом.рф/apartment/"));
+        step("Открыть страницу `аренда.дом.рф`", () ->
+                open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/"));
+
+        step("Кликнуть на кнопку `Выбрать жилье`", () -> {
+            $(byText("Новый уровень арендного жилья")).scrollTo();
+            $(byText("Выбрать жилье")).click();
+        });
+
 
         step("Выбрать в фильтре объект", () -> {
             $$(".filter-row__item").get(0).click();
