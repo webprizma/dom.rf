@@ -3,8 +3,8 @@ package cloud.autotests.tests;
 import cloud.autotests.helpers.DriverUtils;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -116,7 +116,7 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
-    @Tag("apartments")
+    @AfterAll
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
