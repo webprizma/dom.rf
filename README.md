@@ -8,6 +8,7 @@
 - <a href="#robot-сборки-в-Jenkins">Сборки в Jenkins</a>
 - <a href="#keyboard-запуск-из-терминала">Запуск из терминала</a>
 - <a href="#bar_chart-allure-отчет">Allure отчет</a>
+- <a href="#bar_chart-allure-testops-отчет">Allure TestOps отчет</a>
 - <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
 - <a href="#film_projector-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
@@ -72,6 +73,17 @@ test
 - ### Страница с проведенными тестами
 <p align="center">
 <img title="Allure Test Page" src="images/screenshots/allure-test-page.png">
+</p>
+
+## :bar_chart: Allure TestOps отчет
+- ### Главный экран отчета
+<p align="center">
+<img title="Allure Overview Dashboard" src="images/screenshots/allure-test-ops-main-page.png">
+</p>
+
+- ### Страница с проведенными тестами
+<p align="center">
+<img title="Allure Test Page" src="images/screenshots/allure-test-ops-test-page.png">
 </p>
 
 ## :robot: Отчет в Telegram
