@@ -1,5 +1,6 @@
 package rf.dom.helpers;
 
+import org.openqa.selenium.PageLoadStrategy;
 import rf.dom.config.Project;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,6 +25,7 @@ public class DriverSettings {
         chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--lang=en-en");
+        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NONE);
 
         if (Project.isWebMobile()) { // for chrome only
             Map<String, Object> mobileDevice = new HashMap<>();
