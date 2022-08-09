@@ -120,6 +120,7 @@ public class MainPageTests extends TestBase {
                 open("https://аренда.дом.рф/apartment/"));
 
         step("Выбрать в фильтре объект", () -> {
+            $("a.logo").shouldBe(Condition.visible);
             $$(".filter-row__item").get(0).click();
             $(byText("Символ")).click();
         });
