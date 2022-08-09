@@ -19,11 +19,11 @@ public class DriverSettings {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
 
-        chromeOptions.addArguments("--no-sandbox");
+//        chromeOptions.addArguments("--no-sandbox");
 //        chromeOptions.addArguments("--disable-infobars");
-        chromeOptions.addArguments("--disable-popup-blocking");
-        chromeOptions.addArguments("--disable-notifications");
-        chromeOptions.addArguments("--lang=en-en");
+//        chromeOptions.addArguments("--disable-popup-blocking");
+//        chromeOptions.addArguments("--disable-notifications");
+//        chromeOptions.addArguments("--lang=en-en");
 
         if (Project.isWebMobile()) { // for chrome only
             Map<String, Object> mobileDevice = new HashMap<>();
