@@ -23,8 +23,6 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         DriverSettings.configure();
-        getWebDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
-        getWebDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
     }
 
     @BeforeEach

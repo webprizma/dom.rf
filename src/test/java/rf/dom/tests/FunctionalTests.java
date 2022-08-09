@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selectors.withTextCaseInsensitive;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class FunctionalTests extends TestBase {
@@ -134,8 +133,11 @@ public class FunctionalTests extends TestBase {
     @Test
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
-        step("Открыть страницу `аренда.дом.рф`", () ->
-            open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/"));
+        step("Открыть страницу `аренда.дом.рф`", () -> {
+            open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/");
+            getWebDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+            getWebDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
+        });
 
 
         step("Кликнуть на кнопку `Выбрать жилье`", () -> {
