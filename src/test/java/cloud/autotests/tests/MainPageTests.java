@@ -1,19 +1,16 @@
 package cloud.autotests.tests;
 
 import cloud.autotests.helpers.DriverUtils;
-import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.title;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class GeneratedTests extends TestBase {
+public class MainPageTests extends TestBase {
     @Test
-    @Description("Soon to be implemented by you (or QA.GURU engineers)")
     @DisplayName("Dom.rf tests")
     void generatedTest() {
         step("Open дом.рф", () -> {
@@ -30,6 +27,20 @@ public class GeneratedTests extends TestBase {
 
         step("Check heading", () -> {
             step("// todo: just add selenium action");
+        });
+    }
+
+    @Test
+    @DisplayName("Page console log should not have errors")
+    void consoleShouldHaveNotErrorsTest() {
+        step("Open url `https://xn--d1aqf.xn--p1ai/about/`", () ->
+            open("https://xn--d1aqf.xn--p1ai/about/"));
+
+        step("Console logs should not contain text `SEVERE`", () -> {
+            String consoleLogs = DriverUtils.getConsoleLogs();
+            String errorText = "SEVERE";
+
+            assertThat(consoleLogs).doesNotContain(errorText);
         });
     }
 }
