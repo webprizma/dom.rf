@@ -78,12 +78,12 @@ test
 ## :bar_chart: Allure TestOps отчет
 - ### Главный экран отчета
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screenshots/allure-test-ops-main-page.png">
+<img title="Allure TestOps Overview Dashboard" src="images/screenshots/allure-test-ops-main-page.png">
 </p>
 
 - ### Страница с проведенными тестами
 <p align="center">
-<img title="Allure Test Page" src="images/screenshots/allure-test-ops-test-page.png">
+<img title="Allure TestOps Test Page" src="images/screenshots/allure-test-ops-test-page.png">
 </p>
 
 ## :robot: Отчет в Telegram
