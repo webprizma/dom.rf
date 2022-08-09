@@ -45,6 +45,19 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @DisplayName("При клике на новость на странице `Аналитика` открывается страница новости")
+    void newsTest() {
+        step("Открыть страницу `дом.рф/analytics/`", () ->
+                open("https://xn--d1aqf.xn--p1ai/analytics/"));
+
+        step("Кликнуть на последнюю новость в списке", () ->
+                $$(".an-news").last().click());
+
+        step("Проверить, что перешли на страницу новости`", () ->
+                $(".category__text").shouldHave(Condition.text("Новости")));
+    }
+
+    @Test
     @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
         step("Открыть страницу `дом.рф`", () ->
