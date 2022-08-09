@@ -4,6 +4,7 @@ import cloud.autotests.helpers.DriverUtils;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -116,13 +117,15 @@ public class FunctionalTests extends TestBase {
     }
 
     @Test
+    @Order(0)
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
-        step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
-                open("https://аренда.дом.рф/apartment/"));
+        step("Открыть страницу `аренда.дом.рф/apartment/`", () -> {
+            open("https://аренда.дом.рф/apartment/");
+            $("a.logo").should(Condition.visible, Duration.ofSeconds(600));
+        });
 
         step("Выбрать в фильтре объект", () -> {
-            $("a.logo").should(Condition.visible, Duration.ofSeconds(30));
             $$(".filter-row__item").get(0).click();
             $(byText("Символ")).click();
         });
