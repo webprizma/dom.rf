@@ -28,12 +28,12 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Page console log should not have errors")
+    @DisplayName("В консоле не должно быть критичных ошибок")
     void consoleShouldHaveNotErrorsTest() {
-        step("Open url `дом.рф`", () ->
+        step("Открыть страницу `дом.рф`", () ->
                 open("https://xn--d1aqf.xn--p1ai/"));
 
-        step("Console logs should not contain text `SEVERE`", () -> {
+        step("В консоле не должно быть ошибок со статусом `SEVERE`", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
             String errorText = "SEVERE";
 
