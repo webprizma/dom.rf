@@ -82,11 +82,14 @@ public class MainPageTests extends TestBase {
         step("Выбрать город `Москва`", () ->
                 $("#cities-list-selectized").setValue("Москва").pressEnter());
 
-        step("Ввести в поле `Поиск по вакансиям` слово `QA инженер`", () ->
-                $("#search-on-vacancies").setValue("QA инженер"));
+        step("Ввести в поле `Поиск по вакансиям` фразу `QA инженер`", () -> {
+            $("#search-on-vacancies").setValue("QA инженер").pressEnter();
+        });
 
-        step("Проверить, что есть вакансия на тестировщика", () ->
-                $$(".vacancies__item").first().scrollTo().$(".vacancies__item_title").shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)")));
+        step("Проверить, что есть вакансия на тестировщика", () -> {
+            $$(".vacancies__item").shouldHave(CollectionCondition.sizeLessThanOrEqual(1));
+            $$(".vacancies__item").first().scrollTo().$(".vacancies__item_title").shouldHave(Condition.text("QA инженер (ЦК Интеграционный слой)"));
+        });
     }
 
     @Test
@@ -114,7 +117,7 @@ public class MainPageTests extends TestBase {
     @DisplayName("Фильтр по апартаментам работает")
     void apartmentsTest() {
         step("Открыть страницу `аренда.дом.рф/apartment/`", () ->
-                open("https://xn--80aald4bq.xn--d1aqf.xn--p1ai/apartment/"));
+                open("https://аренда.дом.рф/apartment/"));
 
         step("Выбрать в фильтре объект", () -> {
             $$(".filter-row__item").get(0).click();
