@@ -90,7 +90,7 @@ test
 ## :clipboard: Пример issue в JIRA
 - ### JIRA Issue
 <p align="center">
-<img title="JIRA Issue" src="images/screenshots/jira-issue.png">
+<img title="JIRA Issue" src="images/screenshots/jira.png">
 </p>
 
 ## :robot: Отчет в Telegram
