@@ -9,7 +9,6 @@
 - <a href="#keyboard-запуск-из-терминала">Запуск из терминала</a>
 - <a href="#bar_chart-allure-отчет">Allure отчет</a>
 - <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
-- <a href="#robot-отчет-в-slack">Отчет в Slack</a>
 - <a href="#film_projector-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
 ## :computer: Технологии и инструменты
@@ -57,17 +56,6 @@ gradle clean test
 ```
 clean
 test
- -Dbrowser=${BROWSER}
- -DbrowserVersion=${BROWSER_VERSION}
- -DbrowserSize=${BROWSER_SIZE}
- -DbaseUrl=${BASE_URL}
- -Dremote=${REMOTE}
-```
-
-Удаленный запуск только Smoke тестов (c тегом Smoke):
-```
-clean
-smoke_tests
  -Dbrowser=${BROWSER}
  -DbrowserVersion=${BROWSER_VERSION}
  -DbrowserSize=${BROWSER_SIZE}
