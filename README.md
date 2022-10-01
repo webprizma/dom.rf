@@ -29,14 +29,9 @@
 
 ## :clipboard: Реализованные проверки
 
-- При клике на иконку `Личный кабинет` открывается форма авторизации
-- При клике на новость на странице `Аналитика` открывается страница новости
-- При клике на пункт бургер-меню `О компании` должна открыться страница `О компании` с заголовком `О компании`
-- При клике на пункт главного меню `Аналитика и цены` и подменю `Аналитика рынка` должна открыться страница `Аналитика` с заголовком `Аналитика`
-- Уроки по инвестициям закрыты, пока не изучен первый урок
-- Поиск по вакансиям работает
-- Фильтр по апартаментам работает
-- В консоле не должно быть критичных ошибок
+- UI тесты сайта wildberries.ru
+- API тесты reqres.in
+- Мобильные тесты приложения Wildberries
 
 ## :robot: Сборки в Jenkins
 ### <a target="_blank" href="https://jenkins.autotests.cloud/job/C13-yurikulagin-qa-guru-13-14-autotests/">Параметризированная сборка в Jenkins со всеми тестами</a>
@@ -54,16 +49,58 @@
 gradle clean test
 ```
 
-Удаленный запуск всех тестов:
+Локальный запуск UI тестов:
+```
+gradle clean web
+```
+
+Удаленный запуск UI тестов:
 ```
 clean
-test
+web
  -Dbrowser=${BROWSER}
  -DbrowserVersion=${BROWSER_VERSION}
  -DbrowserSize=${BROWSER_SIZE}
  -DbaseUrl=${BASE_URL}
  -Dremote=${REMOTE}
 ```
+
+Локальный запуск API тестов:
+```
+gradle clean api
+```
+
+Локальный запуск мобильных тестов:
+```
+gradle clean mobile
+```
+
+## :keyboard: Команда запуска тестов локально в IntelliJ в терминале
+
+С использованием Browserstack:
+```
+gradle clean test -DdeviceHost=browserstack
+```
+
+С использованием эмулятора Android:
+```
+gradle clean test -DdeviceHost=emulation
+```
+
+С использованием реального смартфона:
+```
+gradle clean test -DdeviceHost=real
+```
+
+С использованием Selenoid:
+```
+gradle clean test -DdeviceHost=selenoid
+```
+
+Можно запустить отдельно тесты на поиск (заменить test на search) и на OnBoarding экран (заменить test на onboard)
+
+
+
 
 ## :bar_chart: Allure отчет
 - ### Главный экран отчета
